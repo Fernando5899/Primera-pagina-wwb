@@ -1,0 +1,243 @@
+/*Palera de Colores*/
+:root {
+    --color-fondo: #FFB6C1;
+    --color-texto: #5D4037;
+    --color-acento: #E74C3C;
+    --color-boton: #FFD700;
+    --color-menta: #90EE90;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+}
+
+.header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: var(--color-texto);
+    margin-top: 50px;
+}
+
+.seccion-inicial {
+    margin: 40px;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.mensaje {
+    font-size: 1.4em;
+    line-height: 1.6;
+}
+
+.dedicatoria {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.campo-flores {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-image: 
+        radial-gradient(circle at 10% 50%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 20% 70%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 30% 60%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 45% 85%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 60% 75%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 75% 90%, var(--color-menta) 2px, transparent 2px),
+        radial-gradient(circle at 90% 80%, var(--color-menta) 2px, transparent 2px);
+    background-size: 10% 100%;
+    animation: sway 20s infinite linear;
+}
+
+@keyframes sway {
+    0% { transform: translate(0); }
+    50% { transform: translateX(-20px); }
+    100% { transform: translateX(0); }
+}
+
+/*Botones Animados*/
+.seccion-botones {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.boton-animado {
+    background-color: var(--color-boton);
+    border: none;
+    border-radius: 50px;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-texto);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-animado {
+    position: relative;
+    z-index: 2;
+}
+
+/*Animacion del boton*/
+.boton-animado::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+.boton-animado:hover::before {
+    transform: translate(-50% -50%) scale(1);
+}
+
+.boton-animado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    color: var(--color-texto);
+    font-size: 0.9em;
+}
+
+.cuerpo-poema {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+}
+
+.poema-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.poema-principal h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: var(--color-fondo);   
+}
+
+.contenedor-poema {
+    max-width: 700px;
+    font-size: 1.5em;
+    line-height: 1.8;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.cuerpo-flor {
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.flor-principal h1 {
+    font-size: 2em;
+    color: var(--color-texto);
+    margin-bottom: 50px;   
+}
+
+.contenedor-flor {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    margin-bottom: 50px;
+}
+
+.tallo, .hoja, .petalo, .centro {
+    position: absolute;
+    background-color: var(--color-menta);
+    transform-origin: bottom center;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    animation-fill-mode: forwards;
+}
+
+.hoja {
+    width: 50px;
+    height: 25px;
+    background-color: var(--color-menta);
+    border-radius: 50%;
+    animation: growLeaf 1.5s 1.5s ease forwards;
+}
+
+.hoja-1 { left: 40px; top: 180px; transform: rotate(-30deg) scale(0); }
+.hoja-2 { right: 40px; top: 150px; transform: rotate(30deg) scale(0); }
+
+.petalo {
+    width: 80px;
+    height: 60px;
+    background-color: var(--color-amarillo-flor);
+    border-radius: 50%;
+    opacity: 0;
+    animation: appearPetal 1s 2s ease forwards;
+}
+
+.petalo-1 { top: 30px; left: 80px; transform: rotate(0deg); }
+.petalo-2 { top: 60px; left: 10px; transform: rotate(90deg); }
+.petalo-3 { top: 60px; left: 150px; transform: rotate(270deg); }
+.petalo-4 { top: 100px; left: 80px; transform: rotate(180deg); }
+
+.centro {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-acento);
+    border-radius: 50%;
+    top: 80px;
+    left: 110px;
+    opacity: 0;
+    animation: appearCenter 0.5s 2.5s ease forwards;
+}
+
+@keyframes growStem {
+    to { height: 250px; }
+}
+
+@keyframes growLeaf {
+    to { transform: scale(1); }
+}
+
+@keyframes appearPetal {
+    to { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes appearCenter {
+    to { opacity: 1; transform: scale(1.1); }
+}
+
+.boton-regreso {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    margin-top: 50px;
+}
